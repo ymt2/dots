@@ -140,7 +140,7 @@ function app_alias()
 app_alias zipinfo zip
 app_alias gzcat tgz gz tbz bz2
 app_alias display gif jpg jpeg png bmp
-app_alias emacs txt tex c h cpp py
+app_alias emacs txt tex c h cpp py hs php
 
 ## load user .zshrc configuration file
 #
