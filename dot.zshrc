@@ -116,13 +116,6 @@ zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 setopt complete_aliases
 
 alias where='command -v'
-alias vi='env LANG=ja_JP.UTF-8 /Applications/-/MacVim.app/Contents/MacOS/Vim "$@"'
-alias gvim='env LANG=ja_JP.UTF-8 open -a /Applications/-/MacVim.app "$@"'
-alias xcon='X :1 -query'
-alias emacs='open -a /Applications/-/Emacs.app/Contents/MacOS/Emacs'
-alias g='hub'
-
-alias -g L="| less"
 alias -g M="| less"
 alias -g G='| grep'
 alias -g C='| cat -n'
