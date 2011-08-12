@@ -1,4 +1,5 @@
-# .zshrc
+# t_ymt2
+#.zshrc
 
 # LANG
 #
