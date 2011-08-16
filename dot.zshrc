@@ -9,8 +9,9 @@ export LANG=ja_JP.UTF-8
 #
 autoload colors
 colors
-PROMPT="%U$USER@%m%%%u "
-RPROMPT="[%~]"
+PROMPT="%U$USER@%m%%%u [%(5~,%-2~/.../%2~,%~)]
+$ "
+# RPROMPT="[%~]"
 SPROMPT="%r is correct? [n,y,a,e]: "
 
 # auto change directory, directory pushed
