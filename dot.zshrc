@@ -130,12 +130,16 @@ zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'c
 setopt complete_aliases
 
 alias where='command -v'
-alias -g M="| less"
-alias -g G='| grep'
-alias -g C='| cat -n'
+alias -g L='| less -N'
+alias -g M='| less -N'
+alias -g G='| grep -n'
+# alias -g C='| cat -n'
+alias -g C='| pbcopy'
 alias -g W='| wc'
 alias -g H='| head'
 alias -g T='| tail'
+alias -g S='| sed'
+alias -g A='| awk'
 alias -g ....='../..'
 
 function app_alias()
