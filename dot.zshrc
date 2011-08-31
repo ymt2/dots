@@ -1,9 +1,9 @@
 # t_ymt2
-#.zshrc
+# .zshrc
 
 # LANG
 #
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
 
 # set prompt
 #
@@ -11,8 +11,8 @@ autoload colors
 colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr
-zstyle ':vcs_info:git:*' unstagedstr
+zstyle ':vcs_info:git:*' stagedstr "+"
+zstyle ':vcs_info:git:*' unstagedstr "-"
 zstyle ':vcs_info:*' formats '[%s-%b] %c%u'
 zstyle ':vcs_info:*' actionformats '[%s-%b|%a] %c%u'
 precmd () {
@@ -20,10 +20,11 @@ precmd () {
 	LANG=ja_JP.UTF-8 vcs_info
 	[[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 }
-PROMPT="%U$USER@%m%%%u [%(5~,%-2~/.../%2~,%~)]
+PROMPT="%U$USER@%m%%%u [%(5~,%-2~/.../%2~,%~)] %1(v|%F{WHITE}%1v%f|)
 $ "
+# PROMPT='%n@%m:%(5~,%-2~/.../%2~,%~)%# '
 # RPROMPT="[%~]"
-RPROMPT="%1(v|%F{WHITE}%1v%f|)"
+# RPROMPT="%1(v|%F{WHITE}%1v%f|)"
 SPROMPT="%r is correct? [n,y,a,e]: "
 
 # auto change directory, directory pushed
@@ -116,31 +117,11 @@ done;
 #
 export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-alias ls='ls -G'
-alias la='ls -a'
-alias lf='ls -F'
-alias ll='ls -l'
-alias du='du -h'
-alias df='df -h'
-alias su='su -l'
 zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
 
 # alias configuration
 # 
 setopt complete_aliases
-
-alias where='command -v'
-alias -g L='| less -N'
-alias -g M='| less -N'
-alias -g G='| grep -n'
-# alias -g C='| cat -n'
-alias -g C='| pbcopy'
-alias -g W='| wc'
-alias -g H='| head'
-alias -g T='| tail'
-alias -g S='| sed'
-alias -g A='| awk'
-alias -g ....='../..'
 
 function app_alias()
 {
