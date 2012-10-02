@@ -3,6 +3,12 @@
 (setq php-mode-force-pear t)
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
 
+; php-lint
+(defun php-lint ()
+  "Perform a PHP lint-check on the current file."
+  (interactive)
+  (shell-command (concat "/usr/bin/php -l " (buffer-file-name))))
+
 ;; php-mode-hook
 (add-hook 'php-mode-hook
           (lambda ()
@@ -20,9 +26,3 @@
                                ac-source-php-completion
                                ac-source-filename
                                ))))
-
-; php-lint
-(defun php-lint ()
-  "Perform a PHP lint-check on the current file."
-  (interactive)
-  (shell-command (concat "/usr/bin/php -l " (buffer-file-name))))
