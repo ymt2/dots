@@ -32,3 +32,15 @@
 (global-set-key "\M-r" 'meta-r-prefix)
 (global-set-key "\M-r\M-r" 'replace-string)
 (global-set-key "\M-r\M-e" 'replace-regexp)
+
+; dired / change-to-dired-mode
+(require 'wdired)
+(define-key dired-mode-map "r" 'wdired-change-to-wdired-mode)
+
+; other-window
+(defun other-window-or-split ()
+  (interactive)
+  (when (one-window-p)
+    (split-window-horizontally))
+  (other-window 1))
+(global-set-key [C-tab] 'other-window-or-split)

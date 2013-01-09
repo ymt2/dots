@@ -21,6 +21,7 @@
                                 backward-char forward-char))
     (ding)))
 (setq ring-bell-function 'my-bell-function)
+(setq visible-bell t)
 
 ;; Hippie expand
 (global-set-key "\M-/" 'hippie-expand)
@@ -54,3 +55,17 @@
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*")
+
+;; sha1-el.el
+;; (install-elisp "http://stuff.mit.edu/afs/sipb/contrib/emacs/packages/flim-1.14.7/sha1-el.el")
+(require 'sha1-el)
+
+
+
+
+
+
+
+
+
+

@@ -5,4 +5,4 @@
 (require 'jaspace)
 (setq jaspace-alternate-jaspace-string "□")
 ;(setq jaspace-alternate-eol-string "↓\n")
-(setq jaspace-highlight-tabs ?^ )
+;(setq jaspace-highlight-tabs ?^ )

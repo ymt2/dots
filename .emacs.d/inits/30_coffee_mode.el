@@ -7,3 +7,4 @@
 (define-key coffee-mode-map [(meta r)] 'coffee-compile-buffer)
 (define-key coffee-mode-map [(meta R)] 'coffee-compile-region)
 (add-hook 'coffee-mode-hook '(lambda () (coffee-cos-mode t)))
+(custom-set-variables '(coffee-tab-width 2))
