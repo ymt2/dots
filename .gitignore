@@ -2,15 +2,11 @@
 
 /.*
 
-!.gitignore
+!/.gitignore
+!/.emacs.d
 
-!.emacs.d
-.emacs.d/auto-save-list
-.emacs.d/auto-install
-.emacs.d/site-lisp
-!.emacs.d/site-lisp/init-loader.el
-.emacs.d/etc/
-.emacs.d/info/
+!/create_symlinks.sh
+!/dot.*
 
 .DS_Store
 *.swp
