@@ -3,7 +3,7 @@
 for dotfile in .?*;
 do
     case $dotfile in
-	.DS_Store | .git | .gitignore | dot.global.gitignore)
+	. | .. | .DS_Store | .git | .gitignore | dot.global.gitignore)
 	    continue;;
 	*)
 	    ln -is "$PWD/$dotfile" $HOME
