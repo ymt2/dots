@@ -60,12 +60,38 @@
 ;; (install-elisp "http://stuff.mit.edu/afs/sipb/contrib/emacs/packages/flim-1.14.7/sha1-el.el")
 (require 'sha1-el)
 
+;; sql-beautify
+;; http://dev.ariel-networks.com/Members/matsuyama/sql-beautifying-in-emacs/
+(defun sql-beautify-region (start end)
+  "Beautify SQL in region between START and END."
+  (interactive "r")
+  (save-excursion
+    (shell-command-on-region start end "sqlbeautify" nil t)))
 
+(defun sql-beautify-buffer ()
+ "Beautify SQL in buffer."
+ (interactive)
+ (sql-beautify-region (point-min) (point-max)))
 
+;; 行末のwhitespaceを削除
+;; http://pokutuna.hatenablog.com/entry/20111117/1321523457
+(setq delete-trailing-whitespace-exclude-patterns (list "\\.md$" "\\.markdown$"))
+(require 'cl)
+(defun delete-trailing-whitespace-with-exclude-pattern ()
+  (interactive)
+  (cond ((equal nil (loop for pattern in delete-trailing-whitespace-exclude-patterns
+                          thereis (string-match pattern buffer-file-name)))
+         (delete-trailing-whitespace))))
+(add-hook 'before-save-hook 'delete-trailing-whitespace-with-exclude-pattern)
 
-
-
-
-
-
-
+;; ファイル末尾の改行を削除
+;; http://pokutuna.hatenablog.com/entry/20111117/1321523457
+(defun my-delete-trailing-blank-lines ()
+  "Deletes all blank lines at the end of the file."
+  (interactive)
+  (save-excursion
+    (save-restriction
+      (widen)
+      (goto-char (point-max))
+      (delete-blank-lines))))
+(add-hook 'before-save-hook 'my-delete-trailing-blank-lines)

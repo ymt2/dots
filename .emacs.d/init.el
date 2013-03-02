@@ -7,6 +7,10 @@
       (normal-top-level-add-subdirs-to-load-path)))
 (add-to-list 'load-path "~/.emacs.d/auto-install")
 
+; info
+(require 'info)
+(add-to-list 'Info-additional-directory-list "~/.emacs.d/info")
+
 ; init-loader
 (require 'init-loader)
 (init-loader-load "~/.emacs.d/inits")

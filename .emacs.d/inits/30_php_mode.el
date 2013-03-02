@@ -1,4 +1,6 @@
 ;; php-mode
+;; http://sourceforge.net/projects/php-mode/
+
 (require 'php-mode)
 (setq php-mode-force-pear t)
 (add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
@@ -16,6 +18,8 @@
 	    (c-set-offset 'arglist-intro' 4)
 	    (c-set-offset 'arglist-cont-noempty' 4)
 	    (c-set-offset 'arglist-close' 0)
+	    (setq tab-width 2)
+	    (setq indent-tabs-mode t)
             (require 'php-completion)
             (php-completion-mode t)
             (define-key php-mode-map (kbd "C-o") 'phpcmp-complete)
