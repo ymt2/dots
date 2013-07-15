@@ -1,5 +1,4 @@
 ;; jaspace.el
-;;
 ;; (install-elisp "http://homepage3.nifty.com/satomii/software/jaspace.el")
 
 (require 'jaspace)

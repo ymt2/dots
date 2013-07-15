@@ -44,3 +44,17 @@
     (split-window-horizontally))
   (other-window 1))
 (global-set-key [C-tab] 'other-window-or-split)
+
+(define-key global-map (kbd "s-a") 'anything)
+
+; disable C-z
+(global-unset-key "\C-z")
+
+;;; windmove
+(windmove-default-keybindings 'super)
+(global-set-key (kbd "s-3") 'split-window-horizontally)
+(global-set-key (kbd "s-2") 'split-window-vertically)
+(global-set-key (kbd "s-1") 'delete-other-windows)
+(global-set-key (kbd "s-0") 'delete-window)
+(global-set-key (kbd "s-o") 'other-window)
+(global-set-key (kbd "s-p") '(lambda () (interactive) (other-window -1)))

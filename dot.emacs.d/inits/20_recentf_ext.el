@@ -5,5 +5,6 @@
 ;      '("PATH"))
 
 ;; Recentf-ext
+;; (auto-install-from-emacswiki "recentf-ext.el")
 (require 'recentf-ext)
-(global-set-key [?\C-;] 'recentf-open-files)
+(global-set-key (kbd "C-;") 'recentf-open-files)

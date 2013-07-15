@@ -1,5 +1,8 @@
 ;; anything
+;; (auto-install-batch "anything")
 (require 'anything-startup)
+
+(global-set-key [(super) a] 'anything)
 
 (global-set-key (kbd "C-x b") 'anything-for-files)
 (global-set-key (kbd "M-g M-.") 'anything-c-etags-selct)

@@ -1,12 +1,11 @@
 ;;; ddskk
-;;; 
+;;;
 (require 'skk-autoloads)
 (global-set-key "\C-x\C-j" 'skk-mode)
 
 ;; AquaSKKの辞書サーバ
 (setq skk-server-host "localhost")
 (setq skk-server-portnum 1178)
-(setq mac-pass-control-to-system nil)
 
 ;;辞書ファイルの文字コード設定
 (setq skk-jisyo-code 'utf-8-unix)

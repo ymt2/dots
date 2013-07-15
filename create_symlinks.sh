@@ -1,14 +1,7 @@
 #! /bin/sh
 
-for dotfile in .?*;
+for dot in dot.?*;
 do
-    case $dotfile in
-	. | .. | .DS_Store | .git | .gitignore | dot.global.gitignore)
-	    continue;;
-	*)
-	    ln -is "$PWD/$dotfile" $HOME
-	    ;;
-    esac
+    file_name=`echo $dot | sed -e "s/^dot\./\./"`
+    ln -is $PWD/$dot $HOME/$file_name
 done
-
-ln -is "$PWD/dot.global.gitignore" $HOME/.gitignore

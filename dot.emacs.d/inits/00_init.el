@@ -2,8 +2,14 @@
 (setq shell-file-name "/bin/zsh")
 
 ;; switch Command-key and Option-key
-(setq ns-command-modifier (quote meta))
-(setq ns-alternate-modifier (quote super))
+(when (eq system-type 'darwin)
+  (setq mac-option-modifier 'meta)
+  (setq mac-command-modifier 'super)
+					;(setqA ns-command-modifier (quote super))
+					;(setq ns-alternate-modifier (quote meta))
+  (setq mac-pass-control-to-system nil)
+  (setq mac-pass-command-to-system nil)
+  (setq mac-pass-option-to-system nil))
 
 ;; yes or no -> y or n
 (fset 'yes-or-no-p 'y-or-n-p)
@@ -74,7 +80,7 @@
  (sql-beautify-region (point-min) (point-max)))
 
 ;; 行末のwhitespaceを削除
-;; http://pokutuna.hatenablog.com/entry/20111117/1321523457
+;; http://pokutuna.hatenablog.com/entry/20111117/1321523457f
 (setq delete-trailing-whitespace-exclude-patterns (list "\\.md$" "\\.markdown$"))
 (require 'cl)
 (defun delete-trailing-whitespace-with-exclude-pattern ()
@@ -95,3 +101,20 @@
       (goto-char (point-max))
       (delete-blank-lines))))
 (add-hook 'before-save-hook 'my-delete-trailing-blank-lines)
+
+;; clipboard
+(defun copy-from-osx ()
+ (shell-command-to-string "pbpaste"))
+
+;; auto-revert
+(global-auto-revert-mode 1)
+
+(defun paste-to-osx (text &optional push)
+ (let ((process-connection-type nil))
+     (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+       (process-send-string proc text)
+       (process-send-eof proc))))
+
+;(when (or (eq system-type 'darwin) (eq system-type 'mac))
+;  (setq interprogram-cut-function 'paste-to-osx)
+;  (setq interprogram-paste-function 'copy-from-osx))
