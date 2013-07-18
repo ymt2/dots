@@ -1,0 +1,150 @@
+# .zshrc.func
+
+function nkfWrapper() {
+  if [ $# -eq 2 ]; then
+    local TMP_FILENAME='/tmp/nkfWrapper.'$$
+
+    if [ $1 = 'euc' ]; then
+      local NKF_OPTION='-e -Lu'
+    elif [ $1 = 'sjis' ]; then
+      local NKF_OPTION='-s -Lw'
+    elif [ $1 = 'utf8' ]; then
+      local NKF_OPTION='-w -Lu'
+    else
+      return 1
+    fi
+
+    nkf $NKF_OPTION $2 >! $TMP_FILENAME
+    mv -f $TMP_FILENAME $2
+
+  else
+    return 1
+  fi
+}
+
+# text-encoding: to euc
+function euc() {
+  for i in $@;
+  do
+    nkfWrapper euc $i
+  done;
+}
+
+# text-encoding: to sjis
+function sjis() {
+  for i in $@;
+  do
+    nkfWrapper sjis $i
+  done;
+}
+
+# text-encoding: to utf8
+function utf8() {
+  for i in $@;
+  do
+    nkfWrapper utf8 $i
+  done;
+}
+
+# detect text-encoding
+function ccode() {
+    nkf --guess $@;
+}
+
+# cdup
+#function cdup() {
+#	echo
+#	cd ..
+#	zle reset-prompt
+#}
+#zle -N cdup
+#bindkey '\^' cdup
+
+# onetouchemacs
+#function onetouchemacs() {
+#	exec < /dev/tty
+#	emacs
+#	zle reset-prompt
+#}
+#zle -N onetouchemacs
+#bindkey '\@' onetouchemacs
+
+# lunchemacs
+function e() { if [ $# = 0 ]; then emacs .; else emacs $1; fi }
+
+# lunchtextmate
+# function m() { if [ $# = 0 ]; then mate .; else mate $1; fi }
+
+# full text search
+function search() {
+	if [ $# = 0 ]; then echo 'usage: search [path] text'; return; fi
+	local d="."
+	local w=$1
+	if [ $# = 2 ]; then d=$1; w=$2; fi
+	find "$d" -print0 | xargs -0 grep --color=auto -nE "$w"
+}
+alias s='search'
+
+# URL encode
+function encodeUrl() {
+	 echo "$1" | python -c 'import sys,urllib;print urllib.quote_plus(sys.stdin.readlines()[0].rstrip());'
+}
+
+# URL decode
+function decodeUrl() {
+	 echo "$1" | python -c 'import sys,urllib;print urllib.unquote_plus(sys.stdin.readlines()[0].rstrip());'
+}
+
+# to Uppercase
+function toUppercase() {
+    echo "$1" | tr "[:upper:]" "[:lower:]"
+}
+
+# to Lowercase
+function toUppercase() {
+    echo "$1" | tr "[:lower:]" "[:upper:]"
+}
+
+
+# alias configuration
+#
+function app_alias() {
+	local APP=$1
+	shift
+	for i in $@; do; alias -s $i=${APP}; done;
+}
+
+## app aliases
+app_alias zipinfo zip
+app_alias gzcat tgz gz tbz bz2
+app_alias display gif jpg jpeg png bmp
+app_alias emacs txt tex c h cpp
+
+# for shellscript debugging
+# http://shellscript.sunone.me/debug.html
+#
+readonly _DEBUG_LOGFILE="./_TEST_DEBUG_.log"
+function debug_log() {
+    [ ! -f "$_DEBUG_LOGFILE" -a $# -ne 0 ] && return 1
+
+    if [ ! -f "$_DEBUG_LOGFILE" -a $# -eq 0 ]; then
+	cat <&0
+	return 1
+    fi
+
+    if [ $# -eq 0 ]; then
+	{
+	    echo "--- `date '+%Y/%m/%d %H:%M:%S'` --------------------------------"
+	    cat <&0
+	    printf "\n\n"
+	    # ロギング用に付加したものは削除しておく
+	} | tee -a $_DEBUG_LOGFILE | sed -e '1d' | head -n -2
+    else
+	{
+	    echo "--- `date '+%Y/%m/%d %H:%M:%S'` --------------------------------"
+	    printf "$*\n\n"
+	} >> $_DEBUG_LOGFILE
+    fi
+
+    return 0
+}

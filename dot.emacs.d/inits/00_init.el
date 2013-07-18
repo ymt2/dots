@@ -109,6 +109,9 @@
 ;; auto-revert
 (global-auto-revert-mode 1)
 
+;; all-ext
+(require 'all-ext)
+
 (defun paste-to-osx (text &optional push)
  (let ((process-connection-type nil))
      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
@@ -118,3 +121,7 @@
 ;(when (or (eq system-type 'darwin) (eq system-type 'mac))
 ;  (setq interprogram-cut-function 'paste-to-osx)
 ;  (setq interprogram-paste-function 'copy-from-osx))
+
+;; packeages
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/") t)
