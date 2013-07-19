@@ -1,12 +1,3 @@
-;; elpa
-(when (require 'package nil t)
-  (add-to-list 'package-archives
-	       '("marmalade" . "http://marmalade-repo.org/packages/"))
-  (add-to-list 'package-archives
-	       '("melpa" . "http://melpa.milkbox.net/packages/") t)
-  (setq package-user-dir(concat user-emacs-directory "elpa"))
-  (package-initialize))
-
 ;; use Zsh
 (setq shell-file-name "/bin/zsh")
 
