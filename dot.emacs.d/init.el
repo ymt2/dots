@@ -27,3 +27,10 @@
 ;; (package-install 'init-loader)
 (when (require 'init-loader nil t)
   (init-loader-load "~/.emacs.d/inits"))
+
+;; auto byte compile
+(add-hook 'after-save-hook
+          (function (lambda ()
+                      (if (eq major-mode 'emacs-lisp-mode)
+                          (save-excursion
+                            (byte-compile-file buffer-file-name))))))
