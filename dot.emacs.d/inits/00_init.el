@@ -1,6 +1,13 @@
 ;; use Zsh
 (setq shell-file-name "/bin/zsh")
 
+;; auto byte compile
+(add-hook 'after-save-hook
+          (function (lambda ()
+                      (if (eq major-mode 'emacs-lisp-mode)
+                          (save-excursion
+                            (byte-compile-file buffer-file-name))))))
+
 ;; switch Command-key and Option-key
 (when (eq system-type 'darwin)
   (setq mac-option-modifier 'meta)
@@ -82,7 +89,8 @@
 ;; 行末のwhitespaceを削除
 ;; http://pokutuna.hatenablog.com/entry/20111117/1321523457f
 (setq delete-trailing-whitespace-exclude-patterns (list "\\.md$" "\\.markdown$"))
-(require 'cl)
+(eval-when-compile
+  (require 'cl))
 (defun delete-trailing-whitespace-with-exclude-pattern ()
   (interactive)
   (cond ((equal nil (loop for pattern in delete-trailing-whitespace-exclude-patterns

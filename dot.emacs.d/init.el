@@ -34,10 +34,3 @@
 ;; info
 (when (require 'info nil t)
   (add-to-list 'Info-additional-directory-list "~/.emacs.d/info"))
-
-;; auto byte compile
-(add-hook 'after-save-hook
-          (function (lambda ()
-                      (if (eq major-mode 'emacs-lisp-mode)
-                          (save-excursion
-                            (byte-compile-file buffer-file-name))))))
