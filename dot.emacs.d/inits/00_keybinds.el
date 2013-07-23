@@ -45,6 +45,7 @@
   (other-window 1))
 (global-set-key [C-tab] 'other-window-or-split)
 
+; anything
 (define-key global-map (kbd "s-a") 'anything)
 
 ; disable C-z

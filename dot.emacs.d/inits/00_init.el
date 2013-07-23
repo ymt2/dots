@@ -120,6 +120,7 @@
 ;; all-ext
 (require 'all-ext)
 
+;; pbcopy
 (defun paste-to-osx (text &optional push)
  (let ((process-connection-type nil))
      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
