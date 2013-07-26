@@ -21,7 +21,8 @@
        (setq auto-install-directory "~/.emacs.d/auto-install")
        (auto-install-update-emacswiki-package-name t)
        (auto-install-compatibility-setup)) ; for compatibility
-      (package-install 'auto-install))
+      (
+       (package-install 'auto-install)))
 
 ;; init-loader
 (cond ((require 'init-loader nil t)
@@ -29,7 +30,8 @@
 					;(setq-default init-loader-show-log-after-init nil
 					;init-loader-byte-compile t)
        (init-loader-load "~/.emacs.d/inits"))
-      (package-install 'init-loader))
+      (
+       (package-install 'init-loader)))
 
 ;; info
 (when (require 'info nil t)
