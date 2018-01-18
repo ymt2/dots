@@ -4,6 +4,7 @@
 [user]
 	name = ymt2
 	email = tatsuya@ymt2.net
+	signingkey = E51BB1342E95CDD5
 [alias]
 	ad = add
 	br = branch
@@ -12,3 +13,5 @@
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 [diff]
 	colorMoved = zebra
+[commit]
+        gpgsign = true
