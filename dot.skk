@@ -1,0 +1,7 @@
+;; -*- mode: emacs-lisp -*-
+(if (eq system-type 'darwin)
+    (progn (setq skk-server-host "localhost"
+                 skk-server-portnum 1178)
+           (add-to-list 'skk-completion-prog-list
+                        '(skk-comp-from-jisyo "~/Dropbox/skk-dict/skk-jisyo.utf8")))
+  (setq skk-large-jisyo "~/.skk.d/skk-get-jisyo/SKK-JISYO.L"))
