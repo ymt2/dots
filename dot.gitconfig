@@ -1,14 +1,14 @@
 # This is Git's per-user configuration file.
 [core]
-    excludesfile = /Users/ymt2/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [user]
 	name = ymt2
 	email = tatsuya@ymt2.net
 [alias]
 	ad = add
-  br = branch
-  co = checkout
-  ci = commit
+	br = branch
+	co = checkout
+	ci = commit
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
 [diff]
 	colorMoved = zebra
