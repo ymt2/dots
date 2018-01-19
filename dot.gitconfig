@@ -4,7 +4,7 @@
 [user]
 	name = ymt2
 	email = tatsuya@ymt2.net
-	signingkey = E51BB1342E95CDD5
+	signingkey = 1435B26C8FC70A43
 [alias]
 	ad = add
 	br = branch
