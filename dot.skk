@@ -1,4 +1,10 @@
 ;; -*- mode: emacs-lisp -*-
+
+(setq skk-rom-kana-rule-list
+      (append skk-rom-kana-rule-list
+              '(("z=" nil ("≠" . "≠"))
+                ("?" nil "?"))))
+
 (if (eq system-type 'darwin)
     (progn (setq skk-server-host "localhost"
                  skk-server-portnum 1178)
