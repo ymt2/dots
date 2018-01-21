@@ -1,6 +1,6 @@
-# This is Git's per-user configuration file.
 [core]
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/config/git/ignore
+	attributesfile = ~/.config/git/attributes
 [user]
 	name = ymt2
 	email = tatsuya@ymt2.net
