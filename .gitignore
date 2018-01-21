@@ -2,14 +2,6 @@
 /.*
 !/.gitignore
 !/dot.*
-
-/dot.emacs.d/auto-install/*.el
-/dot.emacs.d/site-lisp/*.el
 !/create_symlinks.sh
 
-.DS_Store
-*.swp
-*~.nib
-Thumbs.db
-*.elc
-*~
+/dot.config/gcloud
