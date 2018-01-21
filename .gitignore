@@ -1,7 +1,8 @@
 /*
 /.*
 !/.gitignore
-!/dot.*
 !/create_symlinks.sh
 
+!/dot.*
+/dot.config/.*
 /dot.config/gcloud
