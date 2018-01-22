@@ -4,5 +4,7 @@
 !/create_symlinks.sh
 
 !/dot.*
+.zcompdump
+
 /dot.config/.*
 /dot.config/gcloud
