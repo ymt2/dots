@@ -14,4 +14,4 @@
 [diff]
 	colorMoved = zebra
 [commit]
-  gpgsign = true
+	gpgsign = true
