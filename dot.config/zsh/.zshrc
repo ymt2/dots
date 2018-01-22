@@ -144,10 +144,10 @@ if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
 [ -f $ZDOTDIR/.zshrc.local ] && source $ZDOTDIR/.zshrc.local
 
 ## tmux
+alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
 #
 # Start tmux on every shell login
 # https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
-alias tmux="tmux -u"
 #if which tmux 2>&1 >/dev/null; then
 #    #if not inside a tmux session, and if no session is started, start a new session
 #    test -z "$TMUX" && (tmux attach || tmux new-session)
