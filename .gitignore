@@ -8,3 +8,4 @@
 
 /dot.config/.*
 /dot.config/gcloud
+/dot.config/kitty/cached.json
