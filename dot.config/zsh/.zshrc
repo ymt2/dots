@@ -145,6 +145,15 @@ if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
 
 ## tmux
 alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+
+# Always work in a tmux session if tmux is installed
+# https://github.com/chrishunt/dot-files/blob/master/.zshrc
+if which tmux 2>&1 >/dev/null; then
+    if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+        tmux attach -t main || tmux new -s main; exit
+    fi
+fi
+
 #
 # Start tmux on every shell login
 # https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
