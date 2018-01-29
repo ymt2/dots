@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+VERSION=$1
+[ -z "$VERSION" ] && echo "Usage: $(basename "$0") [VERSION]" && exit 1
+
+curl -sSL https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-"$VERSION"-darwin-x86_64.tar.gz | tar -C /usr/local -xf -
+"$(dirname "$0")/setup-gcloud-compnents"

@@ -3,6 +3,8 @@
 !/.gitignore
 !/create_symlinks.sh
 
+!/bin
+
 !/dot.*
 .zcompdump
 

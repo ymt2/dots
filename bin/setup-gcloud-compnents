@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+gcloud components --quiet install \
+  app-engine-go \
+  cbt \
+  bigtable \
+  datalab \
+  cloud-datastore-emulator \
+  pubsub-emulator \
+  emulator-reverse-proxy \
+  container-builder-local \
+  docker-credential-gcr \
+  alpha \
+  beta \
+  app-engine-python \
+  app-engine-python-extras \
+  kubectl
+
+chmod +x /usr/local/google-cloud-sdk/platform/google_appengine/{appcfg.py,backends_conversion.py,bulkload_client.py,bulkloader.py,download_appstats.py,gen_protorpc.py,goapp,php_cli.py,remote_api_shell.py,run_tests.py,wrapper_util.py}
