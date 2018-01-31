@@ -9,5 +9,6 @@
 .zcompdump
 
 /dot.config/.*
+/dot.config/direnv/allow
 /dot.config/gcloud
 /dot.config/kitty/cached.json

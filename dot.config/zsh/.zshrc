@@ -154,6 +154,9 @@ if which tmux 2>&1 >/dev/null; then
     fi
 fi
 
+# Take over mux session
+alias takeover="tmux detach -a"
+
 #
 # Start tmux on every shell login
 # https://wiki.archlinux.org/index.php/Tmux#Start_tmux_on_every_shell_login
@@ -292,16 +295,16 @@ fi
 #
 # Goenv
 #
-export GOENVGOROOT=$HOME/.goenvs
-export GOENVTARGET=$HOME/bin
-export GOENVHOME=$HOME/workspace
+#export GOENVGOROOT=$HOME/.goenvs
+#export GOENVTARGET=$HOME/bin
+#export GOENVHOME=$HOME/workspace
 
 #export GOENVTARGET=$HOME/bin
 #export GOENVHOME=$HOME/workspace
 
-export GOROOT=`go env GOROOT`
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+#export GOROOT=`go env GOROOT`
+#export GOPATH=$HOME/go
+#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -309,3 +312,10 @@ if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/go
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/completion.zsh.inc'; fi
+
+#
+# direnv
+#
+if type direnv >/dev/null 2>&1; then
+    eval "$(direnv hook zsh)"
+fi
