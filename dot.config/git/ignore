@@ -1,3 +1,6 @@
+.direnv
+.envrc
+
 # Created by https://www.gitignore.io/api/tags,macos,emacs,python,intellij
 
 ### Emacs ###
