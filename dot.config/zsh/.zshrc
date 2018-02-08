@@ -293,6 +293,11 @@ if [ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
 fi
 
 #
+# JAVA
+#
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+
+#
 # Goenv
 #
 #export GOENVGOROOT=$HOME/.goenvs
