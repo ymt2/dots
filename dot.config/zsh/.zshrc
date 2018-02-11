@@ -298,18 +298,10 @@ fi
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 #
-# Goenv
+# Golang
 #
-#export GOENVGOROOT=$HOME/.goenvs
-#export GOENVTARGET=$HOME/bin
-#export GOENVHOME=$HOME/workspace
-
-#export GOENVTARGET=$HOME/bin
-#export GOENVHOME=$HOME/workspace
-
-#export GOROOT=`go env GOROOT`
-#export GOPATH=$HOME/go
-#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
 
 
 # The next line updates PATH for the Google Cloud SDK.
