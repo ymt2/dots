@@ -530,6 +530,7 @@ you should place your code here."
     :config
     (direnv-mode))
 
+  (setq gofmt-command "goimports")
   (use-package gotests)
   )
 
