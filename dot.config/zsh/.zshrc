@@ -298,8 +298,9 @@ fi
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 
 #
-# Goenv
+# Go
 #
+export PATH=$HOME/go/bin:$PATH
 #export GOENVGOROOT=$HOME/.goenvs
 #export GOENVTARGET=$HOME/bin
 #export GOENVHOME=$HOME/workspace
