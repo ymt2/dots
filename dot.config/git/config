@@ -11,6 +11,11 @@
 	co = checkout
 	ci = commit
 	undo = "!f() { \\\n    git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; \\\n}; f"
+
+	# worktree
+	wta = "!f() { \\\n    git worktree add $(git rev-parse --show-cdup)git-worktrees/${1} -b ${1}; \\\n}; f"
+	wtp = worktree prune
+	wtrm = worktree prune
 [diff]
 	colorMoved = zebra
 [commit]
