@@ -60,7 +60,9 @@ values."
      gtags
      typescript
      csv
-     go
+     (go :variables
+         go-tab-width 4
+         gofmt-command "goimports")
      rust
      nginx
      docker
@@ -530,7 +532,6 @@ you should place your code here."
     :config
     (direnv-mode))
 
-  (setq gofmt-command "goimports")
   (use-package gotests)
   )
 
