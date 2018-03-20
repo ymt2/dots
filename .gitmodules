@@ -4,3 +4,6 @@
 [submodule "dot.zsh/zsh-autosuggestions"]
 	path = dot.zsh/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions.git
+[submodule "dot.config/emacs/snippets/yasnippet-golang"]
+	path = dot.config/emacs/snippets/yasnippet-golang
+	url = git@github.com:atotto/yasnippet-golang.git
