@@ -303,6 +303,10 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+#
+# Flutter
+#
+export PATH=~/sdk/flutter/bin:$PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/path.zsh.inc'; fi

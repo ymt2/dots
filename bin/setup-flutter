@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+
+VERSION=$1
+[ -z "$VERSION" ] && echo "Usage: $(basename "$0") [VERSION]" && exit 1
+
+FILE=flutter_macos_v"$VERSION"-beta.zip
+
+mkdir -p ~/sdk && cd ~/sdk && curl -sSLO https://storage.googleapis.com/flutter_infra/releases/beta/macos/"$FILE" && unzip -qq $FILE
