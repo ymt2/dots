@@ -300,7 +300,7 @@ export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
 #
 # Golang
 #
-export GOPATH=$HOME/go
+export GOPATH=$HOME/work
 export PATH=$PATH:$GOPATH/bin
 
 #
