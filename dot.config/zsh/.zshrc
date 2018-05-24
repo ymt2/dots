@@ -308,6 +308,11 @@ export PATH=$PATH:$GOPATH/bin
 #
 export PATH=~/sdk/flutter/bin:$PATH
 
+#
+# k8s
+#
+alias k=kubectl
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
 
