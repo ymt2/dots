@@ -88,6 +88,7 @@ values."
                                       quickrun
                                       japanese-holidays
                                       review-mode
+                                      protobuf-mode
                                       (gotests :location (recipe :fetcher github :repo "damienlevin/GoTests-Emacs")))
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -137,7 +138,7 @@ values."
    ;; (default 'vim)
    dotspacemacs-editing-style 'emacs
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
-   dotspacemacs-verbose-loading nil
+   dotspacemacs-verbose-loading t
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -390,7 +391,7 @@ you should place your code here."
 
   (spacemacs/toggle-indent-guide-globally-on)
 
-  (use-package calender
+  (use-package calendar
     :config
     (use-package japanese-holidays)
     (setq calendar-holidays ; 他の国の祝日も表示させたい場合は適当に調整
