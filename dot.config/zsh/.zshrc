@@ -18,10 +18,32 @@ _precmd_vcs_info () {
 }
 add-zsh-hook precmd _precmd_vcs_info
 
+if [[ -f "/usr/local/Cellar/kube-ps1/0.6.0/share/kube-ps1.sh" ]]; then
+    KUBE_PS1_PREFIX='['
+    KUBE_PS1_SUFFIX=']'
+    source /usr/local/Cellar/kube-ps1/0.6.0/share/kube-ps1.sh
+fi
+
+gcp_info() {
+    if [ -f "$HOME/.config/gcloud/active_config" ]; then
+        gcp_profile=$(cat $HOME/.config/gcloud/active_config)
+        gcp_project=$(awk '/project/{print $3}' $HOME/.config/gcloud/configurations/config_$gcp_profile)
+        if [ ! -z ${gcp_project} ]; then
+            echo "[${_prompt_my_colors[1]}ⓖ %f${gcp_project}]"
+        fi
+    fi
+}
+
 local pct=$'%0(?||%18(?||%{\e[31m%}))$%{\e[m%}'
 PROMPT="%U$USER@%m%%%u [%(5~,%-2~/.../%2~,%~)] %1(v|%F{WHITE}%1v%f|)
 $pct "
+
 SPROMPT="%r is correct? [n,y,a,e]: "
+
+RPROMPT='$(kube_ps1)'$RPROMPT
+RPROMPT=$RPROMPT' $(gcp_info)'
+
+setopt transient_rprompt
 
 # cd
 setopt auto_cd
