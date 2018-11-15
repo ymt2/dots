@@ -60,7 +60,7 @@ values."
      restclient
      spell-checking
      syntax-checking
-     version-control
+     ;; version-control
      gtags
      typescript
      csv
