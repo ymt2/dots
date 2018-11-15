@@ -95,6 +95,9 @@ setopt complete_aliases
 #autoload predict-on
 #predict-on
 
+zstyle ':completion:*' menu select interactive
+# setopt menu_complete
+
 # zmv
 autoload -U zmv
 alias zmv='noglob zmv -W'
@@ -336,6 +339,10 @@ export PATH=~/sdk/flutter/bin:$PATH
 alias k=kubectl
 alias -g Kn='$(kubens | peco)'
 alias -g Kp='$(k get po | peco | awk "{print \$1}")'
+
+if (( $+commands[kubectl] )) ; then
+    source <(kubectl completion zsh)
+fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
