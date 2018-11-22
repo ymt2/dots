@@ -344,6 +344,10 @@ if (( $+commands[kubectl] )) ; then
     source <(kubectl completion zsh)
 fi
 
+if (( $+commands[kubectl] )) ; then
+        source <(stern --completion zsh)
+fi
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/usr/local/google-cloud-sdk/path.zsh.inc' ]; then source '/usr/local/google-cloud-sdk/path.zsh.inc'; fi
 
