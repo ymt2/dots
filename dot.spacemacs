@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     org
      swift
      ruby
      helm
@@ -348,10 +349,9 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq system-time-locale "C")
   (setq dotspacemacs-mode-line-theme '(spacemacs :separator 'arrow))
-
-  (setq eyebrowse-keymap-prefix (kbd "C-c e"))
-  )
+  (setq eyebrowse-keymap-prefix (kbd "C-c e")))
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -360,6 +360,31 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  (setq my:v:text-dir (concat (getenv "HOME") "/Dropbox"))
+  (setq open-junk-file-format (concat my:v:text-dir "/junk/%Y/%m/%d-%H%M%S."))
+
+  (with-eval-after-load 'org
+    (setq org-directory my:v:text-dir)
+    (load-library "find-lisp")
+    (setq org-agenda-files (find-lisp-find-files (concat org-directory "/org") "\.org$"))
+    (setq org-archive-location
+          (concat my:v:text-dir "/org/archive/archive-"
+                  (format-time-string "%Y%m" (current-time)) ".org_archive::"))
+    ;;(custom-set-variables
+    ;; '(org-display-custom-times t)
+    ;; '(org-time-stamp-custom-formats
+    ;;   '("<%d %b %Y>" . "<%d/%m/%y %a %H:%M>")))
+    ;; (org-defkey org-mode-map [(meta return)] 'org-meta-return)
+    (setq org-blank-before-new-entry
+          '((heading . always)
+            (plain-list-item . nil)))
+    (setq org-capture-templates
+          `(("t" "Todo" entry (file+headline "org/todo.org" "New Task")
+             "* TODO %?\n %i\n %a"
+             :empty-lines 1)
+            ("n" "Note" entry (file+datetree "org/note.org")
+             "* %^{Description} %^g %? Added: %U"))))
 
   ;; https://github.com/syl20bnr/spacemacs/issues/9549
   (require 'helm-bookmark)
@@ -414,8 +439,6 @@ you should place your code here."
     (add-hook 'calendar-today-visible-hook 'japanese-holiday-mark-weekend)
     (add-hook 'calendar-today-invisible-hook 'japanese-holiday-mark-weekend)
     (add-hook 'calendar-today-visible-hook 'calendar-mark-today))
-
-  (setq open-junk-file-format "~/Dropbox/junk/%Y/%m/%d-%H%M%S.rst")
 
   ;; Replace M-rM-r
   ;;(define-prefix-command 'meta-r-prefix)
