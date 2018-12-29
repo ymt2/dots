@@ -544,6 +544,10 @@ you should place your code here."
                  (setq c-basic-offset 4)
                  (subword-mode 1))))
 
+  (use-package ruby-mode
+    :init
+    (setq ruby-insert-encoding-magic-comment nil))
+
   ;; python
   (use-package anaconda-mode
     :init
