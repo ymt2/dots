@@ -18,10 +18,10 @@ _precmd_vcs_info () {
 }
 add-zsh-hook precmd _precmd_vcs_info
 
-if [[ -f "/usr/local/Cellar/kube-ps1/0.6.0/share/kube-ps1.sh" ]]; then
+if [[ -f "/usr/local/opt/kube-ps1/share/kube-ps1.sh" ]]; then
     KUBE_PS1_PREFIX='['
     KUBE_PS1_SUFFIX=']'
-    source /usr/local/Cellar/kube-ps1/0.6.0/share/kube-ps1.sh
+    source /usr/local/opt/kube-ps1/share/kube-ps1.sh
 fi
 
 gcp_info() {
