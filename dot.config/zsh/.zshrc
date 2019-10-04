@@ -170,16 +170,17 @@ if [[ $TERM_PROGRAM == "Apple_Terminal" ]] && [[ -z "$INSIDE_EMACS" ]] {
 
 ## tmux
 alias tmux='tmux -f "$XDG_CONFIG_HOME"/tmux/tmux.conf'
+alias tm='tmux attach -t main || tmux new -s main; exit'
 
 # Always work in a tmux session if tmux is installed
 # https://github.com/chrishunt/dot-files/blob/master/.zshrc
-if which tmux 2>&1 >/dev/null; then
-    if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
-        tmux attach -t main || tmux new -s main; exit
-    fi
-fi
+#if which tmux 2>&1 >/dev/null; then
+#    if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
+#        tmux attach -t main || tmux new -s main; exit
+#    fi
+#fi
 
-# Take over mux session
+# Take over tmux session
 alias takeover="tmux detach -a"
 
 #
@@ -360,3 +361,5 @@ if [ -f '/usr/local/google-cloud-sdk/completion.zsh.inc' ]; then source '/usr/lo
 if type direnv >/dev/null 2>&1; then
     eval "$(direnv hook zsh)"
 fi
+
+alias h='tldr'
