@@ -32,3 +32,10 @@ $ sudo /usr/libexec/PlistBuddy /Library/LaunchAgents/com.dotfiles.launchd.maxpro
 $ sudo launchctl load -w /Library/LaunchDaemons/com.dotfiles.launchd.maxfiles.plist
 $ sudo launchctl load -w /Library/LaunchDaemons/com.dotfiles.launchd.maxproc.plist
 ```
+
+```bash
+$ defaults write -g KeyRepeat 1
+$ defaults write -g InitialKeyRepeat 10
+$ defaults write -g com.apple.trackpad.scaling 5
+$ defaults write -g com.apple.keyboard.fnState 1
+```
