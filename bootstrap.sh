@@ -17,4 +17,6 @@ do
     ln -is $PWD/$dot $HOME/$file_name
 done
 
+touch $PWD/dot.config/zsh/.zshrc.local
+
 git submodule init && git submodule update
