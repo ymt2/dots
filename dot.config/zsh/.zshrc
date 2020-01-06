@@ -119,7 +119,6 @@ compdef g=git
 alias -g L='| less -N'
 alias -g M='| less -N'
 alias -g G='| grep -n'
-alias -g Gv='G -v'
 # alias -g C='| cat -n'
 alias -g C='| pbcopy'
 alias -g W='| wc'
@@ -130,6 +129,9 @@ alias -g T='| tail'
 alias -g X='| xargs -0'
 alias -g Xg='| xargs -0 grep -n'
 alias -g ....='../..'
+alias -g E='2>&1 > /dev/null'
+
+alias -g Gb='`git branch -vv | fzf +m | awk '\''{print $1}'\''`'
 
 # aliases
 alias ls='ls -G' la='ls -al'
@@ -290,6 +292,10 @@ gmetrics() {
     open "https://console.cloud.google.com/logs/viewer?advancedFilter="$(echo $(gcloud beta logging metrics --format='table[no-heading](filter)' describe $(gcloud beta logging metrics --format='table[no-heading](NAME)' list | peco)) | python -c 'exec("try:from urllib.parse import quote_plus\nexcept ImportError:from urllib import quote_plus");import sys;print(quote_plus(sys.stdin.readlines()[0].rstrip()))')"&project="$(gcloud info --format='value(config.project)')
 }
 
+# fzf
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border'
+alias gcd='cd $(ghq root)/$(ghq list | fzf)'
+alias gbr='hub browse $(ghq list | fzf | cut -d "/" -f 2,3)'
 
 # Emacs
 PATH=$HOME/Applications/Emacs.app/Contents/MacOS/bin:$PATH
@@ -363,3 +369,8 @@ if type direnv >/dev/null 2>&1; then
 fi
 
 alias h='tldr'
+
+#
+# fzf
+#
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
