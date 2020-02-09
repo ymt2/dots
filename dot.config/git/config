@@ -1,4 +1,5 @@
 [core]
+	quotepath = false
 	excludesfile = ~/.config/git/ignore
 	attributesfile = ~/.config/git/attributes
 [user]
