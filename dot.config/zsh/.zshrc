@@ -134,16 +134,19 @@ alias -g E='2>&1 > /dev/null'
 alias -g Gb='`git branch -vv | fzf +m | awk '\''{print $1}'\''`'
 
 # aliases
-alias ls='ls -G' la='ls -al'
 alias du='du -h'
 alias df='df -h'
 alias su='su -l'
-alias diff='colordiff -u'
 alias less='less -R'
 alias where='command -v'
 alias grep='grep --color=auto -n'
 alias e='emacsclient -n -a ""'
 alias t=tig
+
+if type exa >/dev/null 2>&1; then
+    alias ls=exa
+fi
+alias l='ls -lha'
 
 app_alias() {
     local APP=$1
