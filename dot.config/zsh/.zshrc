@@ -144,7 +144,7 @@ alias e='emacsclient -n -a ""'
 alias t=tig
 
 if type exa >/dev/null 2>&1; then
-    alias ls=exa
+    alias ls='exa --group-directories-first --icons --classify'
 fi
 alias l='ls -lha'
 
