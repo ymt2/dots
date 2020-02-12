@@ -7,3 +7,6 @@
 [submodule "dot.config/emacs/snippets/yasnippet-golang"]
 	path = dot.config/emacs/snippets/yasnippet-golang
 	url = git@github.com:atotto/yasnippet-golang.git
+[submodule "dot.zsh/powerlevel10k"]
+	path = dot.zsh/powerlevel10k
+	url = git@github.com:romkatv/powerlevel10k.git
