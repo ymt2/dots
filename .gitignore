@@ -13,3 +13,4 @@
 /dot.config/gcloud
 /dot.config/kitty/cached.json
 /dot.config/zsh/.zshrc.local
+/dot.tmux/plugins/tmux-sensible

@@ -10,3 +10,6 @@
 [submodule "dot.zsh/powerlevel10k"]
 	path = dot.zsh/powerlevel10k
 	url = git@github.com:romkatv/powerlevel10k.git
+[submodule "dot.tmux/plugins/tpm"]
+	path = dot.tmux/plugins/tpm
+	url = git@github.com:tmux-plugins/tpm.git
