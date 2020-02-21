@@ -109,6 +109,8 @@ zstyle ':completion:*' menu select interactive
 autoload -U zmv
 alias zmv='noglob zmv -W'
 
+setopt interactivecomments
+
 # No arguments: `git status`
 # With arguments: acts like `git`
 g() {
@@ -144,7 +146,6 @@ alias -g Gb='`git branch -vv | fzf +m | awk '\''{print $1}'\''`'
 alias du='du -h'
 alias df='df -h'
 alias su='su -l'
-alias less='less -R'
 alias where='command -v'
 alias grep='grep --color=auto -n'
 alias e='emacsclient -n -a ""'
@@ -207,6 +208,9 @@ alias takeover="tmux detach -a"
 #if ! [ "$TMUX" = "" ]; then
 #    tmux set-option status-bg $(perl -MList::Util=sum -e'print+(red,green,blue,yellow,cyan,magenta,white)[sum(unpack"C*",shift)%7]' $(hostname)) | cat > /dev/null
 #fi
+
+export LESSOPEN="| src-hilite-lesspipe.sh %s"
+export LESS='-iSRXFMW'
 
 # functions
 git_root() {
@@ -337,7 +341,7 @@ fi
 #
 # JAVA
 #
-export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+[ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8 2> /dev/null)
 
 #
 # Golang
