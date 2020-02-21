@@ -212,6 +212,21 @@ alias takeover="tmux detach -a"
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS='-iSRXFMW'
 
+tunnel() {
+  local PORT_HOST_HOSTPORT=$1
+  shift
+
+  local HOSTNAME=$1
+  shift
+
+  ssh -NT -L $PORT_HOST_HOSTPORT $HOSTNAME &
+  local pid=$!
+
+  $@
+
+  kill $pid
+}
+
 # functions
 git_root() {
     cd ./`git rev-parse --show-cdup`
