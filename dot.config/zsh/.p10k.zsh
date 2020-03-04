@@ -56,7 +56,7 @@
       background_jobs         # presence of background jobs
       direnv                  # direnv status (https://direnv.net/)
       virtualenv              # python virtual environment (https://docs.python.org/3/library/venv.html)
-      anaconda                # conda environment (https://conda.io/)
+      # anaconda                # conda environment (https://conda.io/)
       pyenv                   # python environment (https://github.com/pyenv/pyenv)
       goenv                   # go environment (https://github.com/syndbg/goenv)
       nodenv                  # node.js version from nodenv (https://github.com/nodenv/nodenv)
@@ -80,21 +80,21 @@
       gcloud                # google cloud cli acccount and project (https://cloud.google.com/)
       # google_app_cred       # google application credentials (https://cloud.google.com/docs/authentication/production)
       context                 # user@hostname
-      nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
-      ranger                  # ranger shell (https://github.com/ranger/ranger)
-      nnn                     # nnn shell (https://github.com/jarun/nnn)
-      vim_shell               # vim shell indicator (:sh)
+      # nordvpn                 # nordvpn connection status, linux only (https://nordvpn.com/)
+      # ranger                  # ranger shell (https://github.com/ranger/ranger)
+      # nnn                     # nnn shell (https://github.com/jarun/nnn)
+      # vim_shell               # vim shell indicator (:sh)
       # midnight_commander    # midnight commander shell (https://midnight-commander.org/)
       # vpn_ip                # virtual private network indicator
       # ram                   # free RAM
       # load                  # CPU load
-      todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
+      # todo                    # todo items (https://github.com/todotxt/todo.txt-cli)
       time                    # current time
       # =========================[ Line #2 ]=========================
       newline
       # public_ip             # public IP address
       # proxy                 # system-wide http/https/ftp proxy
-      # battery               # internal battery
+      battery               # internal battery
       # example               # example user-defined segment (see prompt_example function below)
   )
 
@@ -1057,7 +1057,7 @@
   #   - always:   Trim down prompt when accepting a command line.
   #   - same-dir: Trim down prompt when accepting a command line unless this is the first command
   #               typed after changing current working directory.
-  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=always
+  typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
 
   # Instant prompt mode.
   #
