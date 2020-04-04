@@ -3,7 +3,13 @@
 (setq skk-rom-kana-rule-list
       (append skk-rom-kana-rule-list
               '(("z=" nil ("≠" . "≠"))
-                ("?" nil "?"))))
+                ("?" nil "?")
+
+                ("ca" nil ("カ" . "か"))
+                ("ci" nil ("キ" . "き"))
+                ("cu" nil ("ク" . "く"))
+                ("ce" nil ("ケ" . "け"))
+                ("co" nil ("コ" . "こ")))))
 
 (if (eq system-type 'darwin)
     (progn (setq skk-server-host "localhost"
