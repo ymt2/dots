@@ -20,6 +20,8 @@
 	wtrm = worktree prune
 [diff]
 	colorMoved = zebra
+[diff "sopsdiffer"]
+	textconv = "sops -d"
 [commit]
 	gpgsign = true
 [filter "lfs"]
