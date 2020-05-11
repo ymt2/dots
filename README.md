@@ -34,8 +34,8 @@ $ sudo launchctl load -w /Library/LaunchDaemons/com.dotfiles.launchd.maxproc.pli
 ```
 
 ```bash
-$ defaults write -g KeyRepeat 1
-$ defaults write -g InitialKeyRepeat 10
-$ defaults write -g com.apple.trackpad.scaling 5
-$ defaults write -g com.apple.keyboard.fnState 1
+$ defaults write -g KeyRepeat -int 1
+$ defaults write -g InitialKeyRepeat -int 10
+$ defaults write -g com.apple.trackpad.scaling -int 5
+$ defaults write -g com.apple.keyboard.fnState -int 1
 ```
