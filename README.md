@@ -29,8 +29,8 @@ $ sudo /usr/libexec/PlistBuddy /Library/LaunchAgents/com.dotfiles.launchd.maxpro
   -c "add ProgramArguments: string 2048" \
   -c "add ProgramArguments: string unlimited" \
   -c "add RunAtLoad bool true"
-$ sudo launchctl load -w /Library/LaunchDaemons/com.dotfiles.launchd.maxfiles.plist
-$ sudo launchctl load -w /Library/LaunchDaemons/com.dotfiles.launchd.maxproc.plist
+$ sudo launchctl load -w /Library/LaunchAgents/com.dotfiles.launchd.maxfiles.plist
+$ sudo launchctl load -w /Library/LaunchAgents/com.dotfiles.launchd.maxproc.plist
 ```
 
 ```bash
