@@ -359,10 +359,11 @@ fi
 [ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home -v 1.8 2> /dev/null)
 
 #
-# Golang
+# Go
 #
 export GOPATH=$HOME/work
 export PATH=$PATH:$GOPATH/bin
+export GOENV=$HOME/.config/go
 
 #
 # Flutter
