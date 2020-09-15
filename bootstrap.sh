@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/usr/bin/env zsh
 
 function log() {
     local fname="$(cd "$(dirname "${BASH_SOURCE:-${(%):-%N}}")" && pwd)"
