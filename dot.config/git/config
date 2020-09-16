@@ -6,6 +6,12 @@
 	name = ymt2
 	email = tatsuya@ymt2.net
 	signingkey = 1435B26C8FC70A43
+[merge]
+	ff = false
+[pull]
+	rebase = true
+[push]
+	default = simple
 [alias]
 	ad = add
 	br = branch
