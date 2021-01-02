@@ -94,6 +94,7 @@ values."
                                       ignoramus
                                       bool-flip
                                       magithub
+                                      ox-hugo
                                       madhat2r-theme
                                       prassee-theme
                                       (gotests :location (recipe :fetcher github :repo "damienlevin/GoTests-Emacs"))
@@ -363,7 +364,11 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq my:v:text-dir (concat (getenv "HOME") "/Dropbox"))
+  (setq my:v:text-dir (case system-type
+                        ('gnu/linux (let ((uname (shell-command-to-string "uname -a")))
+                                      (cond ((string-match "Linux.*Microsoft" uname) "/mnt/d/Dropbox"))))
+                        (t (concat (getenv "HOME") "/Dropbox"))))
+
   (setq open-junk-file-format (concat my:v:text-dir "/junk/%Y/%m/%d-%H%M%S."))
 
   (setq-default ispell-program-name "aspell")
@@ -391,8 +396,36 @@ you should place your code here."
              :empty-lines 1)
             ("n" "Note" entry (file+datetree "org/note.org")
              "* %^{Description} %^g %? Added: %U")))
+
     (setq org-todo-keywords
-          '((sequence "TODO(t)" "ICEBOX(i)" "WAITING(w)" "|" "DONE(d)"))))
+          '((sequence "TODO(t)" "ICEBOX(i)" "WAITING(w)" "|" "DONE(d)")))
+
+    ;; ox-hugo
+    (defun org-hugo-new-subtree-post-capture-template ()
+      "Returns `org-capture' template string for new Hugo post.
+See `org-capture-templates' for more information."
+      (let* ((title (read-from-minibuffer "Post Title: ")) ;Prompt to enter the post title
+             (fname (org-hugo-slug title)))
+        (mapconcat #'identity
+                   `(
+                     ,(concat "* TODO " title)
+                     ":PROPERTIES:"
+                     ,(concat ":EXPORT_FILE_NAME: " fname)
+                     ":END:"
+                     "%?\n")          ;Place the cursor here finally
+                   "\n")))
+
+    (add-to-list 'org-capture-templates
+                 '("h"                ;`org-capture' binding + h
+                   "Hugo post"
+                   entry
+                   ;; It is assumed that below file is present in `org-directory'
+                   ;; and that it has a "Blog Ideas" heading. It can even be a
+                   ;; symlink pointing to the actual location of all-posts.org!
+                   (file+olp "org/all-posts.org" "Posts")
+                   (function org-hugo-new-subtree-post-capture-template))))
+
+  (require 'org-tempo)
 
   ;; https://github.com/syl20bnr/spacemacs/issues/9549
   (require 'helm-bookmark)
@@ -604,6 +637,7 @@ you should place your code here."
     :after magit
     :config (magithub-feature-autoinject t))
 
+
   (use-package eglot
     :defer t
     :init
@@ -626,6 +660,10 @@ you should place your code here."
                                         ;`(python-mode . ("pyls" "-v" "--tcp" "--host"
                                         ;                "localhost" "--port" :autoport)))
     )
+
+  (use-package ox-hugo
+    :ensure t
+    :after ox)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
