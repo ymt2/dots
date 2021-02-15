@@ -14,3 +14,6 @@
 /dot.config/kitty/cached.json
 /dot.config/zsh/.zshrc.local
 /dot.tmux/plugins
+
+*.o
+*.hi

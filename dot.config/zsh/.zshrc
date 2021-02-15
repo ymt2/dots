@@ -411,3 +411,8 @@ alias h='tldr'
 #
 [[ ! -f ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme ]] || source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+
+#
+# xmonad
+#
+export XMONAD_CONFIG_DIR=~/.config/xmonad
