@@ -12,6 +12,7 @@
 /dot.config/direnv/allow
 /dot.config/gcloud
 /dot.config/kitty/cached.json
+/dot.config/systemd/user/default.target.wants
 /dot.config/zsh/.zshrc.local
 /dot.tmux/plugins
 
