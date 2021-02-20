@@ -5,7 +5,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.SpawnOnce (spawnOnce)
-import XMonad.Util.EZConfig (additionalKeys)
+import XMonad.Util.EZConfig (additionalKeysP, removeKeysP)
 import System.IO
 
 superMask = mod4Mask
@@ -20,9 +20,13 @@ main = do
     , manageHook  = myManageHook
     , logHook     = myLogHook xmobar
     , startupHook = myStartupHook
-    } `additionalKeys`
-    [ ((0,           xK_Print), spawn "xfce4-screenshooter")
-    , ((controlMask, xK_Print), spawn "xfce4-screenshooter -r")
+    }
+    `additionalKeysP`
+    [ ("<Print>", spawn "xfce4-screenshooter")
+    , ("C-<Print>", spawn "xfce4-screenshooter -r")
+    ]
+    `removeKeysP`
+    [ "M-m" -- To keep alive spacemacs leader key
     ]
 
 myLayoutHook = avoidStruts $ layoutHook defaultConfig
