@@ -366,7 +366,8 @@ explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (setq my:v:text-dir (case system-type
                         ('gnu/linux (let ((uname (shell-command-to-string "uname -a")))
-                                      (cond ((string-match "Linux.*Microsoft" uname) "/mnt/d/Dropbox"))))
+                                      (cond ((string-match "Linux.*Microsoft" uname) "/mnt/d/Dropbox")
+                                            ((string-match ".*" uname) (concat (getenv "HOME") "/Dropbox")))))
                         (t (concat (getenv "HOME") "/Dropbox"))))
 
   (setq open-junk-file-format (concat my:v:text-dir "/junk/%Y/%m/%d-%H%M%S."))
