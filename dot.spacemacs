@@ -76,6 +76,7 @@ values."
      ipython-notebook
      terraform
      dash
+     graphql
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -676,6 +677,9 @@ See `org-capture-templates' for more information."
   (use-package ox-hugo
     :ensure t
     :after ox)
+
+  (use-package graphql
+    :mode (("\\.graphqls?\\'" . graphql-mode)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
