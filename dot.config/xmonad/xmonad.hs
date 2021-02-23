@@ -43,3 +43,4 @@ myStartupHook = do
   setWMName "LG3D" -- For support IntelliJ idea and more.
   spawnOnce "dropbox &"
   spawnOnce "xfce4-clipman &"
+  spawnOnce "nitrogen --restore &"
