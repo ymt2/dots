@@ -15,7 +15,7 @@ main :: IO()
 main = do
   xmobar <- spawnPipe "xmobar"
   xmonad $ docks $ ewmh $ defaultConfig
-    { terminal    = "kitty"
+    { terminal    = "urxvt"
     , layoutHook  = myLayoutHook
     , manageHook  = myManageHook
     , logHook     = myLogHook xmobar
